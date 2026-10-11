@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { GARDENS, GARDEN_SLUGS, type GardenSlug } from "@/gardens";
+import config from "@/config";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = getSortedPosts(await getCollection("posts"));
+
+  return GARDEN_SLUGS.flatMap(garden =>
+    paginate(
+      posts.filter(post => post.data.garden === garden),
+      { params: { garden }, pageSize: config.posts.perPage }
+    )
+  );
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const garden = Astro.params.garden as GardenSlug;
+const { title, description } = GARDENS[garden];
+---
+
+<Layout title={`${title} | ${config.site.title}`} description={description}>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={title} pageDesc={description}>
+    {
+      page.data.length > 0 ? (
+        <ul>
+          {page.data.map(data => (
+            <Card {...data} />
+          ))}
+        </ul>
+      ) : (
+        <p class="my-6">Nothing planted here yet. Check back soon. 🌱</p>
+      )
+    }
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

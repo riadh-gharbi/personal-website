@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { toTransitionName } from "@/utils/toTransitionName";
+import { GARDENS } from "@/gardens";
+import Datetime from "./Datetime.astro";
+import StageBadge from "./StageBadge.astro";
+
+type Props = {
+  variant?: "h2" | "h3";
+  /** Show which garden the note belongs to (useful on mixed listings). */
+  showGarden?: boolean;
+} & CollectionEntry<"posts">;
+
+const {
+  variant: Heading = "h2",
+  showGarden = false,
+  id,
+  data,
+  filePath,
+} = Astro.props;
+
+const { title, description, stage, garden, ...props } = data;
+---
+
+<li class="my-6">
+  <a
+    href={getPostUrl(id, filePath, Astro.currentLocale)}
+    class:list={[
+      "text-accent inline-block text-lg font-medium",
+      "decoration-dashed underline-offset-4 hover:underline",
+      "focus-visible:no-underline focus-visible:underline-offset-0",
+    ]}
+  >
+    <Heading transition:name={toTransitionName(id)}>
+      {title}
+    </Heading>
+  </a>
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <Datetime {...props} />
+    <StageBadge {stage} />
+    {
+      showGarden && (
+        <span class="text-muted-foreground text-xs">
+          {GARDENS[garden].title}
+        </span>
+      )
+    }
+  </div>
+  <p>{description}</p>
+</li>
