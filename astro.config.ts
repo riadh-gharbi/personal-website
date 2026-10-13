@@ -21,8 +21,6 @@ import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
-  // Repo name on GitHub Pages; remove when moving to a custom domain.
-  base: "/personal-website",
   integrations: [
     mdx(),
     sitemap({

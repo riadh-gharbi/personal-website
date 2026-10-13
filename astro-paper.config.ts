@@ -2,8 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    // GitHub Pages project site; keep `base` in astro.config.ts in sync.
-    url: "https://riadh-gharbi.github.io/personal-website/",
+    url: "https://riadhgharden.github.io/",
     title: "riadhgharden",
     description:
       "Riadh Gharbi's digital garden: evolving notes on tech, work and personal interests.",
@@ -26,7 +25,7 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: true,
-      url: "https://github.com/riadh-gharbi/personal-website/edit/main/",
+      url: "https://github.com/riadhgharden/riadhgharden.github.io/edit/main/",
     },
     search: "pagefind",
   },

@@ -49,18 +49,18 @@ For theme features (colour schemes, OG images, giscus comments, LaTeX), see the
 
 ## Deploying to GitHub Pages
 
-The site is published at **https://riadh-gharbi.github.io/personal-website/**
-from [riadh-gharbi/personal-website](https://github.com/riadh-gharbi/personal-website).
+The site is published at **https://riadhgharden.github.io/**
+from [riadhgharden/riadhgharden.github.io](https://github.com/riadhgharden/riadhgharden.github.io)
+(a free GitHub organization owned by riadh-gharbi).
 
 One-time setup: in the repo go to **Settings → Pages → Source: GitHub Actions**.
 After that, each push to `main` builds and deploys the site (see the **Actions** tab).
 
-Because this is a project site, it is served under the `/personal-website` sub-path
-(`base` in `astro.config.ts`). Use relative links (e.g. `../tech/`) inside Markdown so they
-keep working if the base changes.
+The repo is named `<org>.github.io`, so the site is served from the root (no `base` path).
+If the repo is ever renamed, the site moves to `https://<org>.github.io/<repo>/` and needs
+`base: "/<repo>"` in `astro.config.ts`.
 
 ### Moving to a custom domain later
 
 1. Repo **Settings → Pages → Custom domain**, then add the DNS records your registrar shows.
 2. Set `site.url` in `astro-paper.config.ts` to the new domain.
-3. Remove `base` from `astro.config.ts`.

@@ -10,7 +10,7 @@
 | Base theme | AstroPaper v6.1 (Astro 7) |
 | Hosting | GitHub Pages: free, no card. A custom domain and better hosting can come later. |
 | Name / domain | `riadhgh` / `riadhgharden` later. The site title is `riadhgharden`. |
-| Repo / URL | [riadh-gharbi/personal-website](https://github.com/riadh-gharbi/personal-website) → https://riadh-gharbi.github.io/personal-website/ |
+| Repo / URL | [riadhgharden/riadhgharden.github.io](https://github.com/riadhgharden/riadhgharden.github.io) → https://riadhgharden.github.io/ |
 | Language | English only |
 | v1 garden features | Tags + growth stages (no wikilinks or backlinks yet) |
 
@@ -22,7 +22,7 @@ Implementation notes (how it differs from the generic plan below):
 
 Progress:
 - [x] Phase 0: scaffolded, demo content removed, builds cleanly
-- [ ] Phase 1: repo created and remote set. Next: first commit, push, enable Pages (Settings → Pages → GitHub Actions)
+- [x] Phase 1: live at https://riadhgharden.github.io/ (repo moved to the free `riadhgharden` org; old `riadh-gharbi.github.io` site unpublished)
 - [x] Phase 2: config, nav, wording (LinkedIn/GitHub links set)
 - [x] Phase 3: two gardens, home page with garden cards + recently tended
 - [x] Phase 4 (reduced): stage badges, planted/tended dates, tags
