@@ -1,14 +1,13 @@
 ---
-# Copy this file into tech/ or interests/ and rename it (the file name becomes the URL slug).
-# Files starting with "_" are ignored by the site.
-title: "Note title"
-description: "One-sentence summary, shown in listings, search results and link previews."
-garden: tech # tech | interests
+# This md file was generated using the new-post.sh script at the root of the project. 
+title: 
+description: "Draft Post"
+garden:
 stage: seedling # seedling 🌱 | budding 🌿 | evergreen 🌳
-pubDatetime: 2026-01-01T09:00:00Z # when the note was planted
+pubDatetime:
 # modDatetime: 2026-02-01T09:00:00Z  # set whenever you tend (update) the note
 tags:
-  - example
+  - 
 featured: false
 draft: true
 ---
