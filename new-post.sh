@@ -31,7 +31,7 @@ TEMPLATE_FILE="src/content/posts/_template.md"
 
 TARGET_DIR="src/content/posts/$TYPE"
 FILE="$TARGET_DIR/$TITLE.md"
-CURRENT_DATE=$(date +"%Y-%m-%d")
+CURRENT_DATE=$(date -u "+%Y-%m-%dT%H:%M:%SZ")
 
 generate_markdown()
 {
@@ -39,8 +39,7 @@ generate_markdown()
 
 	sed -i "s|^title:.*|title: \"$TITLE\"|" "$FILE"
 	sed -i "s|^garden:.*|garden : $TYPE|" "$FILE"
-	sed -i "s|^pubDateTime:.*|pubDateTime: $CURRENT_DATE|" "$FILE"
-
+	sed -i "s|^pubDatetime:.*|pubDatetime : $CURRENT_DATE|" "$FILE"
 	echo "Success : Created $FILE in $TYPE folder"
 }
 
