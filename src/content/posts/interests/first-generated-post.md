@@ -9,8 +9,7 @@ modDatetime: 2026-10-19T21:13:44Z
 tags:
   - interests
   - ramblings
-featured: false
-draft: true
+featured: true
 ---
 
 This is my first generated post for this website. By generated I mean I used a shell script to generate a template of this post, rather than creating new md files or copy pasting the template in the required folder over and over. That way I can just centralize my environment where I am simply writing a post rather than coding on the website in a less distracting place.
